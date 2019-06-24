@@ -1,12 +1,16 @@
 "use strict"
 
 const express = require('express'),
+      bodyParser = require('body-parser'),
       app = express(),
       fetch = require('node-fetch'),
       urls = [
         'https://api.spacexdata.com/v3/launches',
         'https://api.spacexdata.com/v3/rockets'
       ]
+
+app.use(bodyParser.json()) // support json encoded bodies
+app.use(bodyParser.urlencoded({ extended: true })) // support encoded bodies
  
 app.get('/', function (req, res) {
 
