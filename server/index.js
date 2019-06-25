@@ -40,6 +40,28 @@ app.get('/', (req, res) =>  {
     
 })
 
+app.post('/fav-launch', (req,res) => {
+  
+  const userId = req.body.userId,
+        launchId = req.body.launchId,
+        status = req.body.status
+
+  console.log("userId")
+  console.log(userId)
+  console.log('launchId')
+  console.log(launchId)
+  console.log('status')
+  console.log(status)
+
+  db.collection('users').doc(userId).set({
+    [launchId]: status
+  }).then(() => {
+    res.send('saved in firestore :D')
+  }).catch(err => {
+    res.status(500).send(err.message)
+  })
+  
+})
 
 app.listen(3000)
 console.log('Server listening on port 3000!')
