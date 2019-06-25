@@ -15,7 +15,7 @@ $ cd server
 $ npm install
 $ node index 
 ```
-if there is another process running on port 3000, you can set a new port using: PORT=xxxx 
+If there is another process running on port 3000, you can set a new port using: PORT=xxxx 
 
 ### To run the app, install it locally using npm:
 
