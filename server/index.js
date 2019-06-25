@@ -7,12 +7,13 @@ const express = require('express'),
       urls = [
         'https://api.spacexdata.com/v3/launches',
         'https://api.spacexdata.com/v3/rockets'
-      ]
+      ],
+      db = require('./firebase/index')
 
 app.use(bodyParser.json()) // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })) // support encoded bodies
  
-app.get('/', function (req, res) {
+app.get('/', (req, res) =>  {
 
   Promise.all(urls.map(url =>
     fetch(url)
@@ -40,7 +41,6 @@ app.get('/', function (req, res) {
 })
 
 
- 
 app.listen(3000)
 console.log('Server listening on port 3000!')
 
