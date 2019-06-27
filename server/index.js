@@ -47,13 +47,6 @@ app.post('/fav-launch', (req,res) => {
         launchId = req.body.launchId,
         status = req.body.status
 
-  console.log("userId")
-  console.log(userId)
-  console.log('launchId')
-  console.log(launchId)
-  console.log('status')
-  console.log(status)
-
   db.collection('users').doc(userId).set({
     [launchId]: status
   }).then(() => {
