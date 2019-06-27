@@ -3,6 +3,7 @@
 const express = require('express'),
       bodyParser = require('body-parser'),
       app = express(),
+      port = process.env.PORT || 3000,
       fetch = require('node-fetch'),
       urls = [
         'https://api.spacexdata.com/v3/launches',
@@ -63,8 +64,8 @@ app.post('/fav-launch', (req,res) => {
   
 })
 
-app.listen(process.env.port || 3000)
-console.log('Server listening on port 3000!')
+app.listen(port)
+console.log(`Server listening on port ${port}!`)
 
 const parseJSON = (response) => {
   return response.json()
