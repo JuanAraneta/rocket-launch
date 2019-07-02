@@ -51,9 +51,9 @@ app.post('/fav-launch', (req,res) => {
         launchId = req.body.launchId,
         status = req.body.status
 
-  db.collection('users').doc(userId).set({
+  db.collection('users').doc(userId).update({
     [launchId]: status
-  }).then(() => {
+  }, {merge: true}).then(() => {
     res.send('saved in firestore :D')
   }).catch(err => {
     res.status(500).send(err.message)
