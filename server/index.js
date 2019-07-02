@@ -3,6 +3,7 @@
 const express = require('express'),
       bodyParser = require('body-parser'),
       app = express(),
+      cors = require('cors'),
       port = process.env.PORT || 3000,
       fetch = require('node-fetch'),
       urls = [
@@ -11,6 +12,9 @@ const express = require('express'),
       ],
       db = require('./firebase/index')
 
+app.use(cors({
+  origin: 'http://localhost:8000'
+}))
 app.use(bodyParser.json()) // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })) // support encoded bodies
  
