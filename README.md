@@ -8,6 +8,10 @@ Project is created with:
 	
 ## Setup
 
+### Firebase credentials:
+
+locate them on '/server/firebase'
+
 ### To run the server, install it locally using npm:
 
 ```
